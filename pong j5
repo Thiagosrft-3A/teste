@@ -140,4 +140,20 @@ function preload(){
   ponto = loadSound("ponto.mp3");
   raquetada = loadSound("raquetada.mp3");
 }
+function movimentaRaqueteOponente(){
+    // Calcula a direção da bola em relação à raquete do oponente
+    let direcao = yBolinha - (yRaqueteOponente + raqueteAltura / 2);
+
+    // Define a velocidade da raquete do oponente
+    let velocidade = 5;
+
+    // Se a bola estiver acima da raquete do oponente, move a raquete para cima
+    if (direcao < 0){
+        yRaqueteOponente -= velocidade;
+    }
+    // Se a bola estiver abaixo da raquete do oponente, move a raquete para baixo
+    else if (direcao > 0){
+        yRaqueteOponente += velocidade;
+    }
+}
 
