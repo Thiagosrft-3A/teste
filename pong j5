@@ -141,19 +141,50 @@ function preload(){
   raquetada = loadSound("raquetada.mp3");
 }
 function movimentaRaqueteOponente(){
-    // Calcula a direção da bola em relação à raquete do oponente
+    
     let direcao = yBolinha - (yRaqueteOponente + raqueteAltura / 2);
 
-    // Define a velocidade da raquete do oponente
+   
     let velocidade = 5;
 
-    // Se a bola estiver acima da raquete do oponente, move a raquete para cima
+    
     if (direcao < 0){
         yRaqueteOponente -= velocidade;
     }
-    // Se a bola estiver abaixo da raquete do oponente, move a raquete para baixo
+   
     else if (direcao > 0){
         yRaqueteOponente += velocidade;
     }
+}
+
+function movimentaMinhaRaquete() {
+  if (keyIsDown(UP_ARROW)) {
+  
+    if (yRaquete > 0) {
+      yRaquete -= 10;
+    }
+  }
+  if (keyIsDown(DOWN_ARROW)) {
+   
+    if (yRaquete + raqueteAltura < height) {
+      yRaquete += 10;
+    }
+  }
+}
+function movimentaRaqueteOponente() {
+  
+  let direcao = yBolinha - (yRaqueteOponente + raqueteAltura / 2);
+
+  
+  let velocidade = 5;
+
+  
+  if (direcao < 0 && yRaqueteOponente > 0) {
+    yRaqueteOponente -= velocidade;
+  }
+  
+  else if (direcao > 0 && yRaqueteOponente + raqueteAltura < height) {
+    yRaqueteOponente += velocidade;
+  }
 }
 
