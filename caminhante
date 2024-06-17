@@ -10,7 +10,7 @@ function draw() {
 
   let maximoY = height;
   let minimoY = 0;
-  let palavraY = "Tinta";
+  let palavraY = "Caminhante";
   let quantidadeY = map(mouseY, 0, height, 1, palavraY.length);
   let parcialY = palavraY.substring(0, quantidadeY);
   text(parcialY, 200, 200);
