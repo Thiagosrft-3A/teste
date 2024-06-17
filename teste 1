@@ -1,3 +1,5 @@
+let nomes = ["Tatuagem", "tatu", "tinta"];
+
 function setup() {
   createCanvas(400, 400);
 }
@@ -7,11 +9,12 @@ function draw() {
   fill("black");
   textSize(64);
   textAlign(CENTER, CENTER);
-  
-  // Mostrando o texto "Tatuagem" horizontalmente
-  let maximoX = width;
-  let minimoX = 0;
-  let palavraX = "Tatuagem";
+
+  // Escolher um nome aleatoriamente
+  let indice = floor(random(nomes.length));
+  let palavraX = nomes[indice];
+
+  // Exibir o texto parcial baseado na posição do mouse
   let quantidadeX = map(mouseX, 0, width, 1, palavraX.length);
   let parcialX = palavraX.substring(0, quantidadeX);
   text(parcialX, 200, 200);
