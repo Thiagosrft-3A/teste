@@ -1,21 +1,33 @@
-let nomes = ["Tatuagem", "tatu", "tinta"];
+let palavra;
 
 function setup() {
   createCanvas(400, 400);
+  
+  
+  let palavras = ["tinta", "tatuagem", "tatu-bola"];
+  
+  palavra = random(palavras);
 }
 
-function draw() {
+function inicializaCores() {
+  
   background("white");
   fill("black");
   textSize(64);
   textAlign(CENTER, CENTER);
+}
 
-  // Escolher um nome aleatoriamente
-  let indice = floor(random(nomes.length));
-  let palavraX = nomes[indice];
+function draw() {
+  
+  inicializaCores();
 
-  // Exibir o texto parcial baseado na posição do mouse
-  let quantidadeX = map(mouseX, 0, width, 1, palavraX.length);
-  let parcialX = palavraX.substring(0, quantidadeX);
-  text(parcialX, 200, 200);
+  let maximo = width;
+  let minimo = 0;
+  // mouseX, 0, width ==> 0, palavra.length
+  
+  let quantidade = map(mouseX, 0, width, 1, palavra.length);
+  //console.log(quantidade);
+  let parcial = palavra.substring(0, quantidade);
+  text(parcial, 200, 200);
+  
 }
